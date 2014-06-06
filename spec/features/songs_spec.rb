@@ -33,4 +33,19 @@ feature 'CRUD favorite songs' do
     expect(page).to_not have_content 'Thriller'
     expect(page).to_not have_content 'Michael Jackson'
   end
+
+  scenario 'User can delete a song from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a song'
+    fill_in 'Title', with: 'Thriller'
+    fill_in 'Artist', with: 'Michael Jackson'
+    click_on 'Add song'
+    expect(page).to have_content 'Thriller'
+    expect(page).to have_content 'Michael Jackson'
+    click_on 'Thriller'
+    click_on 'Delete song'
+    expect(page).to_not have_content 'Thriller'
+    expect(page).to_not have_content 'Michael Jackson'
+  end
 end

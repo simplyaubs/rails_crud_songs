@@ -4,4 +4,5 @@
   </li>
 </ul>
 
-<%= link_to 'Edit', edit_song_path(@song) %>
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Delete song', song_path(@song), method: :delete %>
